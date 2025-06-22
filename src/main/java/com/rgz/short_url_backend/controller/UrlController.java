@@ -24,7 +24,7 @@ public class UrlController {
     @PostMapping("/shorten")
     public ResponseEntity<UrlResponse> shortenUrl(@Valid @RequestBody UrlRequest request) {
         String shortUrl = urlService.shortenUrl(request.getUrl());
-        return ResponseEntity.ok(new UrlResponse("http://rgz.com/" + shortUrl));
+        return ResponseEntity.ok(new UrlResponse("http://localhost:8080/url/" + shortUrl));
     }
 
     @GetMapping("/{shortUrl}")
