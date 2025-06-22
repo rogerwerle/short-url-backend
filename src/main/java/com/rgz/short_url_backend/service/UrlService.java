@@ -4,6 +4,7 @@ import com.rgz.short_url_backend.entity.Url;
 import com.rgz.short_url_backend.repository.UrlRepository;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -55,7 +56,9 @@ public class UrlService {
         urlRepository.delete(url);
     }
 
-    @Scheduled(cron = "0 */5 * * * *")
+
+    @Scheduled(cron = "0 0 * * * *")
+    @Transactional
     public void deleteExpiredUrls() {
         int deletedCount = urlRepository.deleteByExpirationBefore(LocalDateTime.now());
         System.out.println("URLs expiradas removidas: " + deletedCount);
