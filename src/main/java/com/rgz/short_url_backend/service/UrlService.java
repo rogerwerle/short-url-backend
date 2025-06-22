@@ -24,7 +24,7 @@ public class UrlService {
         Url url = new Url();
         url.setOriginalUrl(originalUrl);
         url.setShortUrl(shortUrl);
-        url.setExpiration(LocalDateTime.now().plusMinutes(30));
+        url.setExpiration(LocalDateTime.now().plusDays(1));
         urlRepository.save(url);
         return shortUrl;
     }
