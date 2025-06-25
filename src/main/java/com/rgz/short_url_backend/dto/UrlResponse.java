@@ -1,17 +1,17 @@
 package com.rgz.short_url_backend.dto;
 
 public class UrlResponse {
-    private String url;
+    private String shortUrl;
 
-    public UrlResponse(String url) {
-        this.url = url;
+    public UrlResponse(String shortUrl) {
+        this.shortUrl = shortUrl;
     }
 
-    public String getUrl() {
-        return url;
+    public String getShortUrl() {
+        return shortUrl;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setShortUrl(String shortUrl) {
+        this.shortUrl = shortUrl;
     }
 }
